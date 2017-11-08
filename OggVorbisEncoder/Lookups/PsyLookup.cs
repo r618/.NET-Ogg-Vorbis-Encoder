@@ -838,7 +838,7 @@ namespace OggVorbisEncoder.Lookups
         private float NoiseNormalize(
             int limit,
             IList<float> r,
-            IList<float> q,
+            float[] q,
             IList<float> f,
             IList<bool> flags,
             int offset,
