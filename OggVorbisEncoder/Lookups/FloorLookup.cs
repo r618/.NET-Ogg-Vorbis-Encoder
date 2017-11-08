@@ -101,7 +101,7 @@ namespace OggVorbisEncoder.Lookups
             }
         }
 
-        public int[] Fit(IList<float> logmdct, IList<float> logmask)
+        public int[] Fit(float[] logmdct, float[] logmask)
         {
             var n = _n;
 
@@ -268,7 +268,7 @@ namespace OggVorbisEncoder.Lookups
             return null;
         }
 
-        private bool InspectError(int x0, int x1, int y0, int y1, IList<float> mask, IList<float> mdct)
+        private bool InspectError(int x0, int x1, int y0, int y1, float[] mask, float[] mdct)
         {
             var dy = y1 - y0;
             var adx = x1 - x0;

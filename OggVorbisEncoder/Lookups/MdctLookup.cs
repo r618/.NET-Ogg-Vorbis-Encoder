@@ -55,7 +55,7 @@ namespace OggVorbisEncoder.Lookups
             _scale = 4f/n;
         }
 
-        public void Forward(IList<float> input, float[] output)
+        public void Forward(float[] input, float[] output)
         {
             var n = _n;
             var n2 = n >> 1;
