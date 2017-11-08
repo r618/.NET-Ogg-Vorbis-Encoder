@@ -282,7 +282,7 @@ namespace OggVorbisEncoder.Lookups
             }
         }
 
-        private void dradf2(int ido, int l1, IList<float> cc, IList<float> ch, int wa1)
+        private void dradf2(int ido, int l1, float[] cc, float[] ch, int wa1)
         {
             var t1 = 0;
             var t2 = l1*ido;

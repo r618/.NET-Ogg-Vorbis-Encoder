@@ -984,7 +984,7 @@ namespace OggVorbisEncoder.Lookups
                     floor[linePosition] = minV;
         }
 
-        private void SeedChase(IList<float> seeds)
+        private void SeedChase(float[] seeds)
         {
             var posStack = new int[_totalOctaveLines];
             var ampStack = new float[_totalOctaveLines];
@@ -1073,7 +1073,7 @@ namespace OggVorbisEncoder.Lookups
             }
         }
 
-        private static void SeedCurve(IList<float> seeds, float[][] curves, float amp, int oc, int n, int linesper,
+        private static void SeedCurve(float[] seeds, float[][] curves, float amp, int oc, int n, int linesper,
             float dbOffset)
         {
             var choice = (int) ((amp + dbOffset - Level0)*.1f);
