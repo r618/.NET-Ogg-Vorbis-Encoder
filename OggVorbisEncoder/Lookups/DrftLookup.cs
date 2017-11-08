@@ -5,7 +5,7 @@ namespace OggVorbisEncoder.Lookups
 {
     public class DrftLookup
     {
-        private readonly IList<int> _splitCache;
+        private readonly int[] _splitCache;
         private readonly float[] _trigCache;
 
         public DrftLookup(int n)
@@ -342,8 +342,8 @@ namespace OggVorbisEncoder.Lookups
             }
         }
 
-        private void dradfg(int ido, int ip, int l1, int idl1, IList<float> cc, IList<float> c1, IList<float> c2,
-            IList<float> ch, IList<float> ch2, int wa)
+        private void dradfg(int ido, int ip, int l1, int idl1, float[] cc, float[] c1, float[] c2,
+            float[] ch, float[] ch2, int wa)
         {
             const float tpi = 6.283185307179586f;
 

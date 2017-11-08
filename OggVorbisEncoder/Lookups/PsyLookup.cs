@@ -362,7 +362,7 @@ namespace OggVorbisEncoder.Lookups
         }
 
         public void ToneMask(
-            IList<float> pcm,
+            float[] pcm,
             float[] logmask,
             float globalSpecMax,
             float localSpecMax)
@@ -389,9 +389,9 @@ namespace OggVorbisEncoder.Lookups
             float[] noise,
             float[] tone,
             int offsetIndex,
-            IList<float> logmask,
-            IList<float> mdct,
-            IList<float> logmdct)
+            float[] logmask,
+            float[] mdct,
+            float[] logmdct)
         {
             var toneAtt = _psyInfo.ToneMasterAtt[offsetIndex];
 
@@ -930,8 +930,8 @@ namespace OggVorbisEncoder.Lookups
         }
 
         private static void FlagLossless(
-            int limit, float prePoint, float postPoint, IList<float> mdct,
-            IList<float> floor, IList<bool> flag, int offset, int i, int jn)
+            int limit, float prePoint, float postPoint, float[] mdct,
+            float[] floor, bool[] flag, int offset, int i, int jn)
         {
             for (var j = 0; j < jn; j++)
             {
@@ -948,7 +948,7 @@ namespace OggVorbisEncoder.Lookups
             return BitConverter.ToSingle(BitConverter.GetBytes(i), 0);
         }
 
-        private void MaxSeeds(float[] seed, IList<float> floor)
+        private void MaxSeeds(float[] seed, float[] floor)
         {
             var linePosition = 0;
 
@@ -1037,7 +1037,7 @@ namespace OggVorbisEncoder.Lookups
             }
         }
 
-        private void SeedLoop(float[][][] curves, IList<float> pcm, float[] floor, float[] seeds, float specmax)
+        private void SeedLoop(float[][][] curves, float[] pcm, float[] floor, float[] seeds, float specmax)
         {
             // prime the working vector with peak values
             for (var i = 0; i < _n; i++)
@@ -1101,21 +1101,21 @@ namespace OggVorbisEncoder.Lookups
             }
         }
 
-        private static void MinCurve(IList<float> c1, float[] c2)
+        private static void MinCurve(float[] c1, float[] c2)
         {
             for (var i = 0; i < EhmerMax; i++)
                 if (c2[i] < c1[i])
                     c1[i] = c2[i];
         }
 
-        private static void MaxCurve(IList<float> c1, float[] c2)
+        private static void MaxCurve(float[] c1, float[] c2)
         {
             for (var i = 0; i < EhmerMax; i++)
                 if (c2[i] > c1[i])
                     c1[i] = c2[i];
         }
 
-        private static void AttenuateCurve(IList<float> curve, float att)
+        private static void AttenuateCurve(float[] curve, float att)
         {
             for (var i = 0; i < EhmerMax; i++)
                 curve[i] += att;

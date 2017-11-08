@@ -115,7 +115,7 @@ namespace OggVorbisEncoder
 
         private static void UpdatePcmFromLpcPredict(
             float[] lpcCoeff,
-            IList<float> data,
+            float[] data,
             int offset,
             int m,
             int n)
@@ -137,7 +137,7 @@ namespace OggVorbisEncoder
             }
         }
 
-        private static void PopulateLpcFromPcm(IList<float> lpci, IList<float> data, int offset, int n, int m)
+        private static void PopulateLpcFromPcm(float[] lpci, float[] data, int offset, int n, int m)
         {
             var aut = new double[m + 1];
             var lpc = new double[m];
@@ -573,9 +573,9 @@ namespace OggVorbisEncoder
         private void TransformPcm(
             float[][] inputPcm,
             int pcmEnd,
-            IList<int[]> work,
-            IList<float[]> gmdct,
-            IList<float> localAmpMax)
+            int[][] work,
+            float[][] gmdct,
+            float[] localAmpMax)
         {
             for (var channel = 0; channel < inputPcm.Length; channel++)
             {
@@ -627,7 +627,7 @@ namespace OggVorbisEncoder
         }
 
         private void ApplyWindow(
-            IList<float> pcm,
+            float[] pcm,
             int lastWindow,
             int window,
             int nextWindow)
@@ -667,7 +667,7 @@ namespace OggVorbisEncoder
             float[][] inputPcm,
             int pcmEnd,
             Mapping mapping,
-            IList<int[][]> floorPosts,
+            int[][][] floorPosts,
             float[][] gmdct,
             PsyLookup psyLookup,
             float[] localAmpMax)
