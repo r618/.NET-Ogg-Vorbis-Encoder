@@ -7,8 +7,8 @@ namespace OggVorbisEncoder
 {
     public class EncodeSetup
     {
-        private static readonly Lazy<IEnumerable<ISetupTemplate>> SetupTemplates =
-            new Lazy<IEnumerable<ISetupTemplate>>(CreateTemplates);
+        //private static readonly Lazy<IEnumerable<ISetupTemplate>> SetupTemplates =
+        //    new Lazy<IEnumerable<ISetupTemplate>>(CreateTemplates);
 
         public EncodeSetup(ISetupTemplate template, double baseSetting)
         {
@@ -55,7 +55,7 @@ namespace OggVorbisEncoder
             int sampleRate,
             float quality)
         {
-            foreach (var template in SetupTemplates.Value)
+            foreach (var template in CreateTemplates())
             {
                 if ((template.CouplingRestriction != -1)
                     && (template.CouplingRestriction != channels))
