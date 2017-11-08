@@ -449,7 +449,7 @@ namespace OggVorbisEncoder.Lookups
             }
         }
 
-        public void NoiseMask(IList<float> logmdct, float[] logmask)
+        public void NoiseMask(float[] logmdct, float[] logmask)
         {
             var work = new float[_n];
 
@@ -478,8 +478,8 @@ namespace OggVorbisEncoder.Lookups
         }
 
         private void BarkNoiseHybridMp(
-            IList<float> f,
-            IList<float> noise,
+            float[] f,
+            float[] noise,
             float offset,
             int adjusted)
         {

@@ -22,6 +22,13 @@ namespace OggVorbisEncoder
             set { _array[Offset + index] = value; }
         }
 
+        public T[] array()
+        {
+            T[] result = new T[this.Count];
+            Array.Copy(_array, Offset, result, 0, this.Count);
+            return result;
+        }
+
         public int Count => _array.Length - Offset;
 
         public bool IsReadOnly { get; } = false;

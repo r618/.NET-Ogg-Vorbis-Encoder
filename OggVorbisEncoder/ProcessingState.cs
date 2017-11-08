@@ -682,7 +682,7 @@ namespace OggVorbisEncoder
                 var submap = mapping.ChannelMuxList[channel];
 
                 var pcm = inputPcm[channel];
-                var logmdct = new OffsetArray<float>(pcm, pcmEnd/2);
+                var logmdct = (new OffsetArray<float>(pcm, pcmEnd / 2).array());
 
                 floorPosts[channel] = new int[PsyGlobal.PacketBlobs][];
 
