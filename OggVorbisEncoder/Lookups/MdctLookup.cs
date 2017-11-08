@@ -355,7 +355,7 @@ namespace OggVorbisEncoder.Lookups
             } while (x2 >= 0);
         }
 
-        private void ReverseBits(IList<float> data)
+        private void ReverseBits(float[] data)
         {
             var n = _n;
             var bit = 0;
