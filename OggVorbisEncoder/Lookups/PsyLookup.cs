@@ -837,14 +837,14 @@ namespace OggVorbisEncoder.Lookups
 
         private float NoiseNormalize(
             int limit,
-            IList<float> r,
+            float[] r,
             float[] q,
-            IList<float> f,
-            IList<bool> flags,
+            float[] f,
+            bool[] flags,
             int offset,
             int i,
             int n,
-            IList<int> output)
+            int[] output)
         {
             var sort = new List<OffsetArray<float>>(n);
 
